@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import androidx.databinding.BindingAdapter;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 import vk.dogbreed.R;
 
@@ -31,5 +32,10 @@ public class Util {
         drawable.start();
 
         return drawable;
+    }
+
+    @BindingAdapter("android:imageUrl")
+    public static void loadImage(ImageView imageView, String url) {
+        loadImage(imageView, url, getCircularProgressDrawable(imageView.getContext()));
     }
 }

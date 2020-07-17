@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.DetailFragment">
 
-    <ImageView
-        android:id="@+id/dogImage"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="dog"
+            type="vk.dogbreed.model.DogBreed" />
+    </data>
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:minHeight="200dp"
-        android:scaleType="fitCenter"
-        android:contentDescription="TODO" />
+        android:layout_height="match_parent"
+        tools:context=".view.DetailFragment">
 
-    <TextView
-        android:id="@+id/dogName"
-        style="@style/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dogImage"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp" />
+        <ImageView
+            android:id="@+id/dogImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:contentDescription="TODO"
+            android:imageUrl="@{dog.imageUrl}"
+            android:minHeight="200dp"
+            android:scaleType="fitCenter" />
 
-    <TextView
-        android:id="@+id/dogPurpose"
-        style="@style/Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dogName"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp" />
+        <TextView
+            android:id="@+id/dogName"
+            style="@style/Title"
+            android:text="@{dog.dogBreed}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogImage"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
 
-    <TextView
-        android:id="@+id/dogTemparament"
-        style="@style/Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dogPurpose"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp" />
+        <TextView
+            android:id="@+id/dogPurpose"
+            style="@style/Text"
+            android:text="@{dog.bredFor}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogName"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
 
-    <TextView
-        android:id="@+id/dogLifespan"
-        style="@style/Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dogTemparament"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/dogTemparament"
+            style="@style/Text"
+            android:text="@{dog.temperament}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogPurpose"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
+
+        <TextView
+            android:id="@+id/dogLifespan"
+            style="@style/Text"
+            android:text="@{dog.lifSpan}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogTemparament"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
+    </RelativeLayout>
+
+</layout>
