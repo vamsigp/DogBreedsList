@@ -18,6 +18,7 @@ import vk.dogbreed.model.DogBreed;
 import vk.dogbreed.model.DogDao;
 import vk.dogbreed.model.DogDatabase;
 import vk.dogbreed.model.DogsApiService;
+import vk.dogbreed.util.NotificationHelper;
 import vk.dogbreed.util.SharedPreferencesHelper;
 
 public class ListViewModel extends AndroidViewModel {
@@ -72,7 +73,9 @@ public class ListViewModel extends AndroidViewModel {
                                 insertTask = new InsertDogsTask();
                                 insertTask.execute(dogList);
                                 sharedPreferencesHelper.saveUpdateTime(System.nanoTime());
-                                Toast.makeText(getApplication(), "Fetch from Network", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplication(), "Fetch from Network", Toast.LENGTH_LONG).show();
+                                NotificationHelper instance = NotificationHelper.getInstance(getApplication());
+                                instance.createNotification();
                             }
 
                             @Override
